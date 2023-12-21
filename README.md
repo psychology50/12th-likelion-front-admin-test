@@ -30,3 +30,4 @@ Figma로 제공한 UI와 Use case 기능을 React로 구현하시오.
 
 ### 🚀 제출 방법
 - 해당 repository를 fork한 후, 코드 제출해서 PR 등록
+  - PR 제목은 `(이름) 제출합니다.`로 올려주세요.

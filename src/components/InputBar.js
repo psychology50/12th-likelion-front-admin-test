@@ -128,7 +128,7 @@ const InputBar = () => {
 
   return (
     <>
-      <div>
+      <span>
         <span>
           <label htmlFor="dateInput">일자</label>
           <input
@@ -202,7 +202,7 @@ const InputBar = () => {
             }
           />
         </span>
-      </div>
+      </span>
     </>
   );
 };

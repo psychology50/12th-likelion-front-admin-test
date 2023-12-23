@@ -1,0 +1,56 @@
+.form-group {
+  position: relative;
+  margin: 0 10px;
+}
+
+.dropdown-button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #FCFCFC;
+  border-radius: 5px;
+  border: 1px solid #BBBBBB;
+  width:150px;
+}
+
+.drop-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #FCFCFC;
+  border: 1px solid #BBBBBB;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  border-radius: 5px;
+  margin-top: 42px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.dropdown-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #dddddd;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #000000;
+  display: block;
+}
+
+.delete-image {
+  
+}

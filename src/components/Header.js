@@ -16,33 +16,18 @@ const Header = () => {
     const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     let thisMonth = month[now.getMonth()];
 
-    const [currentYear, setCurrentYear] = useState(year);
-    const [currentMonth, setCurrentMonth] = useState(thisMonth);
+    const [currentData, setCurrentDate] = useState(thisMonth);
 
     const handleChange = () => {
         
     }
 
     const handlePrevMonth = (e) => {
-        setCurrentMonth((prevMonthIndex)=> {
-            if (prevMonthIndex === 0) {
-                setCurrentYear(currentYear - 1);
-                return 11;
-            } else {
-                return prevMonthIndex - 1;
-            }
-        });
+        const newDate = thisMonth-1;
     }
 
     const handleNextMonth = (e) => {
-        setCurrentMonth(prevMonthIndex => {
-            if (prevMonthIndex === 11) {
-              setCurrentYear(currentYear + 1);
-              return 0;
-            } else {
-              return prevMonthIndex + 1;
-            }
-          });
+        const newDate = thisMonth+1;
     }
 
     return (
@@ -52,12 +37,12 @@ const Header = () => {
 
                 <DateBox>
                     <button className="leftArrowBtn" onClick={handlePrevMonth}>
-                        <img src = {back_button} alt="Previous Month"></img>
+                        <img src = {back_button}></img>
                     </button>
-                    <p className="title">{thisMonth[currentMonth]}</p>
-                    <p className="subtitle">{currentYear}</p>
+                    <p className="title">{thisMonth}</p>
+                    <p className="subtitle">{year}</p>
                     <button className="rightArrowBtn" onClick={handleNextMonth}>
-                        <img src={next_button} alt="Next Month"></img>
+                        <img src={next_button}></img>
                     </button>
                 </DateBox>
 
@@ -77,5 +62,4 @@ const Header = () => {
         </HeaderBox>
     )
 }
-
-export default Header;
+ export default Header;

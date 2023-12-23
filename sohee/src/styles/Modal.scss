@@ -1,0 +1,67 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.modal {
+    background: #FCFCFC;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    height: 230px;
+    border-radius: 10px;
+}
+.pay-method-title {
+    margin-top: 40px;
+}
+  
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirm-btn {
+    color: #045D8B;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    width: 80px;
+    background-color: #FCFCFC;
+    border: none;
+    cursor: pointer;
+}
+
+.cancle-btn {
+    color: #888;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    width: 80px;
+    background-color: #FCFCFC;
+    border: none;
+    cursor: pointer;
+}
+
+#inputField {
+    width: 320px;
+    padding: 10px;
+    margin-top: 24px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #D7D7D7; 
+    background: #F5F5F5;
+    font-size: 16px;
+    &:focus {
+        outline: none;
+        border: none;
+    }
+}

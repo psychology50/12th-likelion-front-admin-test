@@ -1,0 +1,36 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0 auto;
+    width: 848px;
+}
+
+.horizontal-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.active-image {
+    margin: 0 10px;
+}
+
+.active-content {
+    color: #00365D;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.total-count {
+    color: #00365D;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-right: auto;
+}

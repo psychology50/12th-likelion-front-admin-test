@@ -12,7 +12,6 @@ import { TextIcon, CalendarIcon, ChartIcon } from '../icons';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { plus, minus } from "../redux/MonthYearReducer"
-import { useEffect } from 'react';
 
 const monthNames = [
   'January', 'February', 'March', 'April', 

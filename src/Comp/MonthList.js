@@ -4,7 +4,8 @@ import { useState, useEffect } from "react"
 import { 
   Container,
   Stack,
-  Typography
+  Typography,
+  Box
 } from "@mui/material"
 
 import DayList from "./DayList"
@@ -12,13 +13,34 @@ import DayList from "./DayList"
 const EXPENSE = "EXPENSE"
 const INCOME = "INCOME"
 
-const List = () => {
+const MonthList = () => {
   const date = useSelector((state) => state.monthYear)
   const [allExpense, setAllExpense] = useState(0)
   const [allIncome, setAllIncome] = useState(0)
   const [ledgerKeys, setLedgerKeys] = useState([])
   const [ledgerData, setLedgerData] = useState({})
   useEffect(() => {
+    function filterCurrentMonthData(data) {
+      return data.filter(item => {
+        const usedAt = new Date(item.used_at);
+        const usedYear = usedAt.getFullYear();
+        const usedMonth = usedAt.getMonth();
+  
+        return usedYear === date.year && usedMonth === date.month
+      });
+    }
+  
+    function groupByDate(data) {
+      return data.reduce((acc, cur) => {
+        const date = cur.used_at;
+        if (!acc[date]) {
+          acc[date] = [];
+        }
+        acc[date].push(cur);
+        return acc;
+      }, {});
+    }
+  
     const fetch = async() => {
       const res = await getLedgerAPI()
       const fData = filterCurrentMonthData(res)
@@ -38,30 +60,10 @@ const List = () => {
     fetch()
   }, [date])
 
-  function filterCurrentMonthData(data) {
-    return data.filter(item => {
-      const usedAt = new Date(item.used_at);
-      const usedYear = usedAt.getFullYear();
-      const usedMonth = usedAt.getMonth();
-
-      return usedYear === date.year && usedMonth === date.month
-    });
-  }
-
-  function groupByDate(data) {
-    return data.reduce((acc, cur) => {
-      const date = cur.used_at;
-      if (!acc[date]) {
-        acc[date] = [];
-      }
-      acc[date].push(cur);
-      return acc;
-    }, {});
-  }
 
   return (
     <Container maxWidth="sm">
-      <Stack direction={"row"} justifyContent={"space-between"}>
+      <Stack direction={"row"} justifyContent={"space-between"} >
         <Typography variant="noto" fontSize={"22px"} color={"primary.main"}>전채 내역 {13}건</Typography>
         
         <Stack direction={"row"}>
@@ -75,9 +77,9 @@ const List = () => {
         })
       }
 
-
+      <Box height={"100px"}></Box>
     </Container>
   )
 
 }
-export default List
+export default MonthList

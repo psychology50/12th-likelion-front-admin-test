@@ -6,7 +6,6 @@ import {
   MenuItem,
   Typography,
   Input,
-  Divider,
   IconButton,
   Paper,
   Box
@@ -16,11 +15,12 @@ import { CheckIcon } from "../icons";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ClearIcon from '@mui/icons-material/Clear';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { getPaymentAPI } from "../API/PaymentAPI";
 import { getCategoryAPI } from "../API/CategoryAPI";
 import List from "./MonthList.js";
 import { postLedgerAPI } from "../API/LedgerAPI.js";
+import { forceRender } from "../redux/MonthYearReducer.js";
+import { useDispatch } from "react-redux";
 
 const categoryNames = {
   expense: [
@@ -64,10 +64,11 @@ const InputBar = () => {
   const [amount, setAmount] = useState("")
   const [amountType, setAmountType] = useState(EXPENSE)
 
+  // post 가능 판단
   const [isVaild, setIsValid] = useState(false)
 
-  // post 가능 판단
 
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetch = async() => {
@@ -159,6 +160,9 @@ const InputBar = () => {
       "is_income": (amountType === INCOME)
     }
     await postLedgerAPI(data)
+    .then(() => {
+      dispatch(forceRender())
+    })
   }
 
 

@@ -7,6 +7,7 @@ export const MonthYearReducer = createSlice({
   initialState: {
     month: today.getMonth(),
     year: today.getFullYear(),
+    render: true
   },
   reducers: {
     plus: (state) => {
@@ -22,9 +23,12 @@ export const MonthYearReducer = createSlice({
         state.month = 11
         state.year -= 1
       }
+    },
+    forceRender: (state) => {
+      state.render = !state.render
     }
   }
 })
 
-export const {plus, minus} = MonthYearReducer.actions
+export const {plus, minus, forceRender} = MonthYearReducer.actions
 export default MonthYearReducer.reducer
